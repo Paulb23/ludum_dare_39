@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://Scripts/game_manager.gd" type="Script" id=1]
 [ext_resource path="res://Tiles/can_place_tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://Tiles/ground_tiles.tres" type="TileSet" id=3]
 [ext_resource path="res://Scripts/player.gd" type="Script" id=4]
+[ext_resource path="res://GUI/gui.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -61,5 +62,7 @@ curve = SubResource( 1 )
 [node name="player" type="Node2D" parent="."]
 
 script/script = ExtResource( 4 )
+
+[node name="gui" parent="." instance=ExtResource( 5 )]
 
 

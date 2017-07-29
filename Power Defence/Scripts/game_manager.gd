@@ -19,7 +19,8 @@ func place_tower(tower, tile):
 	get_node("player").remove_child(tower_to_place)
 	get_node("towers").add_child(tower_to_place)
 	tower_to_place.activate()
-	get_node("player").set_active_tower()
+	get_node("player").active_tower = null
+	get_node("player").set_active_tower(-1)
 	
 func can_place(pos):
 	return get_node("can_place").get_cell(pos.x, pos.y) && get_node("can_place").get_cell(pos.x, pos.y - 1) && get_node("can_place").get_cell(pos.x - 1, pos.y) && !pos in towers

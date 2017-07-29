@@ -1,0 +1,84 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://GUI/gui.gd" type="Script" id=1]
+
+[node name="gui" type="Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 16.0
+margin/bottom = 16.0
+script/script = ExtResource( 1 )
+
+[node name="selected" type="Panel" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 512.0
+margin/right = 800.0
+margin/bottom = 600.0
+
+[node name="towers" type="Panel" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 80.0
+margin/top = 464.0
+margin/right = 192.0
+margin/bottom = 600.0
+
+[node name="HButtonArray" type="HButtonArray" parent="towers"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 144.0
+margin/top = 64.0
+margin/right = 704.0
+margin/bottom = 120.0
+flat = true
+button/count = 0
+button/min_button_size = -1.0
+button/align = 0
+
+[node name="solar_tower" type="Button" parent="towers/HButtonArray"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 48.0
+margin/bottom = 64.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="basic_attack" type="Button" parent="towers/HButtonArray"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 64.0
+margin/top = 0.0
+margin/right = 112.0
+margin/bottom = 64.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+
