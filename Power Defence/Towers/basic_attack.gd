@@ -2,10 +2,16 @@ extends Area2D
 
 var projectile = load("res://Projectiles/basic_projectile.tscn")
 
+var name = "Lawn Keepers"
 var activated = false
 var has_target = false
 var target_list = []
 var target = null
+
+var powered = true
+var energy_cost = 10
+var build_cost = 5
+
 var area = CircleShape2D.new()
 
 var fire_timer
@@ -15,7 +21,7 @@ func _ready():
 	get_node("CollisionShape2D").set_shape(area);
 
 func _fixed_process(delta):
-	if (!activated):
+	if (!activated && powered):
 		return
 	
 	if (!has_target && target_list.size() > 0):
@@ -52,9 +58,9 @@ func _draw():
 		draw_circle(get_node("Sprite").get_pos(), area.get_radius(), Color("11272726"))
 		
 func fire():
-	if (target != null):
+	if (target != null && powered):
 		var new_projectile = projectile.instance()
-		new_projectile.target = target;
+		new_projectile.set_target(target);
 		new_projectile.set_pos(get_pos())
 		get_parent().add_child(new_projectile)
 	

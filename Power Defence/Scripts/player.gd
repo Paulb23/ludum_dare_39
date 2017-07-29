@@ -31,8 +31,17 @@ func _input(event):
 				active_tower.get_node("Sprite").set_opacity(1)
 				get_parent().place_tower(active_tower, get_mouse_tile())
 		else:
+			if (event.type == InputEvent.MOUSE_BUTTON && event.button_mask == BUTTON_MASK_LEFT):
+				get_parent().show_error("Cannot place tower there!")
 			active_tower.get_node("Sprite").set_opacity(0.1)
-		
+	elif (event.type == InputEvent.MOUSE_BUTTON && event.button_mask == BUTTON_MASK_LEFT):
+		var mouse_pos = get_local_mouse_pos()
+		mouse_pos.x += 16
+		mouse_pos.y += 16
+		mouse_pos.x = floor(mouse_pos.x / tile_size)
+		mouse_pos.y = floor(mouse_pos.y / tile_size)
+		get_parent().select_tower(mouse_pos)
+
 func set_active_tower(tower):
 	if (active_tower != null):
 		active_tower.queue_free()
@@ -46,6 +55,8 @@ func set_active_tower(tower):
 	
 func get_mouse_tile():
 	var mouse_pos = get_local_mouse_pos()
+	mouse_pos.x += 16
+	mouse_pos.y += 16
 	mouse_pos.x = floor(mouse_pos.x / tile_size)
 	mouse_pos.y = floor(mouse_pos.y / tile_size)
 	return mouse_pos
