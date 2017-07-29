@@ -7,10 +7,23 @@ var targets_basic = [
 var towers = {}
 
 var current_energy = 50
+var current_health = 100
 
 func _ready():
 	get_node("energy_timer").connect("timeout", self, "update_energy")
 	spawn_target(0)
+
+func update_health():
+	var decrease = 100 - current_health
+	var percent_decreace = float(decrease) / float(100)
+	get_node("gui/health").set_percentage((float(1.00) - (float(percent_decreace))))
+
+func take_dmg(dmg):
+	current_health -= dmg
+	update_health()
+	
+	if (current_health <= 0):
+		show_error("Game Over!")
 
 func update_energy():
 	var cant_afford_tower = true

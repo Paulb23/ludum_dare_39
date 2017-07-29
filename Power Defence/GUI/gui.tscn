@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=3 format=1]
 
 [ext_resource path="res://GUI/gui.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/bar.gd" type="Script" id=2]
 
 [node name="gui" type="Control"]
 
@@ -158,5 +159,15 @@ process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
+
+[node name="health" type="Node2D" parent="."]
+
+transform/pos = Vector2( 536, 496 )
+transform/scale = Vector2( 7.5, 0.25 )
+script/script = ExtResource( 2 )
+FULL_COLOR = Color( 1, 0.1, 0.1, 1 )
+EMPTY_COLOR = Color( 1, 0.1, 0.1, 1 )
+BORDER_COLOR = Color( 0.66, 0.66, 0.66, 1 )
+BORDER_SIZE = 0.01
 
 
