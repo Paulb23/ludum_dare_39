@@ -5,4 +5,21 @@
 ===================================================
 
 		
+Theme:- Running out of Power
 
+3 ways:
+	1: have to keep power
+	2: it is comming to an end no matter what, enjoy the last few moments.	
+	3: the power will run out have to find a way to save it.
+		- human base is running out of power
+		- a robot (you) is launched on the plaent to find a new source of power
+			- you are powered by solar and a battery storage
+				- have a base decline, actions use up power
+				- stay in light to recharge		
+		- find the power and win the game
+
+	4: other
+		- name: power defence
+		- Tower defence
+		- Located on another planet
+		- towers cost power to upkeep
