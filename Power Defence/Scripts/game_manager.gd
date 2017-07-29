@@ -23,7 +23,10 @@ func update_energy():
 			if (current_energy - tower.energy_cost >= 0):
 				cant_afford_tower = false
 			tower.powered = false
-	if powered_off == towers.size() && cant_afford_tower:
+			
+	if towers.size() <= 0 && current_energy <= 0:
+		show_error("Game Over!")
+	elif powered_off == towers.size() && cant_afford_tower && towers.size() > 0:
 		show_error("Game Over!")
 	get_node("gui/energy").set_text("Power: " + str(current_energy))
 
