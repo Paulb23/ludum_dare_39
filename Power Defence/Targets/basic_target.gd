@@ -11,7 +11,9 @@ func _fixed_process(delta):
 	
 	if get_unit_offset() >= 0.99:
 		get_parent().get_parent().take_dmg(dmg)
+		get_parent().get_parent().killed_target()
 		queue_free()
 	
 func hit():
+	get_parent().get_parent().killed_target()
 	queue_free()
