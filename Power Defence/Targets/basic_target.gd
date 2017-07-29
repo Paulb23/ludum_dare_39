@@ -7,3 +7,6 @@ func _ready():
 	
 func _fixed_process(delta):
 	set_unit_offset(get_unit_offset()+speed*delta)
+	
+func hit():
+	queue_free()
