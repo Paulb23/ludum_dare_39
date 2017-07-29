@@ -50,6 +50,11 @@ func place_tower(tower, tile):
 
 func select_tower(pos):
 	if (pos in towers):
+		if (towers[pos].energy_generation > 0):
+			if (towers[pos].ready):
+				towers[pos].collect()
+				current_energy += towers[pos].energy_generation
+				get_node("gui/energy").set_text("Power: " + str(current_energy))
 		get_node("gui").tower_selected(towers[pos])
 
 func can_place(pos):
