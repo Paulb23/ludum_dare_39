@@ -51,4 +51,12 @@ vframes = 6
 hframes = 8
 frame = 1
 
+[node name="plain_grass_right" type="Sprite" parent="."]
+
+transform/pos = Vector2( 160, 23 )
+texture = ExtResource( 1 )
+vframes = 6
+hframes = 8
+frame = 6
+
 

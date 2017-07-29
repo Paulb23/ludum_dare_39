@@ -1,7 +1,7 @@
 extends PathFollow2D
 
 var speed = 0.05
-var dmg = 5
+var dmg = 7
 
 func _ready():
 	set_fixed_process(true)

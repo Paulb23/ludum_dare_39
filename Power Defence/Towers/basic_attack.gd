@@ -8,6 +8,7 @@ var has_target = false
 var target_list = []
 var target = null
 
+var dmg = 5
 var powered = true
 var energy_cost = 10
 var build_cost = 5
@@ -22,26 +23,30 @@ func _ready():
 	get_node("CollisionShape2D").set_shape(area);
 
 func _fixed_process(delta):
-	if (!activated && powered):
+	if (!powered):
+		get_node("AnimationPlayer").stop()
+		get_node("Sprite").set_frame(4)
+	
+	if (!activated || !powered):
 		return
 	
 	if (!has_target && target_list.size() > 0):
 		target = target_list.back()
 		if (target):
 			has_target = true
-			print("target selected")
 		if (fire_timer.get_time_left() == 0):
 			fire_timer.start()
 			fire()
+			get_node("AnimationPlayer").play("fire")
 	if (!has_target and target_list.size() <= 0):
 		fire_timer.stop()
-		
+	
+	if (!get_node("AnimationPlayer").is_playing()):
+		get_node("AnimationPlayer").play("powered")
 
 func target_entered(body):
 	if (body.get_name().find("target") == -1):
 		return 
-	print(fire_timer.get_time_left())
-	print("adding target")
 	target_list.push_back(body)
 	
 func target_exited(body):
@@ -51,7 +56,6 @@ func target_exited(body):
 	if (target == body):
 		target = null
 		has_target = false
-	print("removing target")
 	target_list.erase(body)
 	
 func _draw():

@@ -31,7 +31,7 @@ func toggle_power():
 	
 func tower_selected(tower):
 	selected_tower = tower
-	get_node("selected/stats").set_text(tower.name + "\nCost: " + str(tower.energy_cost) + "\nDmg: " + str(0)) 
+	get_node("selected/stats").set_text(tower.name + "\nCost: " + str(tower.energy_cost) + "\nDmg: " + str(tower.dmg)) 
 	if (tower.powered):
 		get_node("selected/power_button").set_text("Power Off")
 	else:

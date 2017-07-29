@@ -94,6 +94,7 @@ func place_tower(tower, tile):
 	current_energy -= tower.build_cost
 	get_node("gui/energy").set_text("Power: " + str(current_energy))
 	towers[tile] = tower
+	get_node("SamplePlayer").play("place_0" + str(floor(rand_range(1,4))))
 	var tower_to_place = get_node("player").active_tower
 	get_node("player").remove_child(tower_to_place)
 	get_node("towers").add_child(tower_to_place)

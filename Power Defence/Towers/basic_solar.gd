@@ -5,6 +5,7 @@ var energy_cost = 1
 var build_cost = 1
 var energy_generation = 5
 var activated = false
+var dmg = 0
 
 var powered = true
 var generating = false
@@ -28,7 +29,7 @@ func _fixed_process(delta):
 	
 	if (!generating && !ready):
 		generating = true
-		get_node("generator_timer").set_wait_time(rand_range(5, 10))
+		get_node("generator_timer").set_wait_time(rand_range(45, 90))
 		get_node("generator_timer").start()
 		animation.play("generating")
 		
