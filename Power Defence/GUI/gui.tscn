@@ -1,14 +1,19 @@
-[gd_scene load_steps=18 format=1]
+[gd_scene load_steps=29 format=1]
 
 [ext_resource path="res://GUI/gui.gd" type="Script" id=1]
-[ext_resource path="res://Icons/solar_tower/solar_hover.png" type="Texture" id=2]
-[ext_resource path="res://Icons/solar_tower/solar_pressed.png" type="Texture" id=3]
-[ext_resource path="res://Icons/solar_tower/solar_normal.png" type="Texture" id=4]
-[ext_resource path="res://Icons/basic_attack/attack_hover.png" type="Texture" id=5]
-[ext_resource path="res://Icons/basic_attack/attack_normal.png" type="Texture" id=6]
-[ext_resource path="res://Scripts/bar.gd" type="Script" id=7]
+[ext_resource path="res://GUI/panel.png" type="Texture" id=2]
+[ext_resource path="res://Icons/solar_tower/solar_hover.png" type="Texture" id=3]
+[ext_resource path="res://Icons/solar_tower/solar_pressed.png" type="Texture" id=4]
+[ext_resource path="res://Icons/solar_tower/solar_normal.png" type="Texture" id=5]
+[ext_resource path="res://Icons/basic_attack/attack_hover.png" type="Texture" id=6]
+[ext_resource path="res://Icons/basic_attack/attack_normal.png" type="Texture" id=7]
+[ext_resource path="res://GUI/panel_card.png" type="Texture" id=8]
+[ext_resource path="res://Fonts/nasalization-rg.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Scripts/bar.gd" type="Script" id=10]
+[ext_resource path="res://GUI/power_panel.png" type="Texture" id=11]
+[ext_resource path="res://Fonts/batmfa__.ttf" type="DynamicFontData" id=12]
 
-[sub_resource type="StyleBoxTexture" id=2]
+[sub_resource type="StyleBoxTexture" id=11]
 
 content_margin/left = -1.0
 content_margin/right = -1.0
@@ -25,7 +30,7 @@ expand_margin/top = 0.0
 expand_margin/bottom = 0.0
 draw_center = true
 
-[sub_resource type="StyleBoxTexture" id=5]
+[sub_resource type="StyleBoxTexture" id=2]
 
 content_margin/left = -1.0
 content_margin/right = -1.0
@@ -42,13 +47,30 @@ expand_margin/top = 0.0
 expand_margin/bottom = 0.0
 draw_center = true
 
+[sub_resource type="StyleBoxTexture" id=5]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+texture = ExtResource( 4 )
+margin/left = 0.0
+margin/right = 0.0
+margin/top = 0.0
+margin/bottom = 0.0
+expand_margin/left = 0.0
+expand_margin/right = 0.0
+expand_margin/top = 0.0
+expand_margin/bottom = 0.0
+draw_center = true
+
 [sub_resource type="StyleBoxTexture" id=3]
 
 content_margin/left = -1.0
 content_margin/right = -1.0
 content_margin/top = -1.0
 content_margin/bottom = -1.0
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 margin/left = 0.0
 margin/right = 0.0
 margin/top = 0.0
@@ -65,7 +87,7 @@ content_margin/left = -1.0
 content_margin/right = -1.0
 content_margin/top = -1.0
 content_margin/bottom = -1.0
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 margin/left = 0.0
 margin/right = 0.0
 margin/top = 0.0
@@ -82,7 +104,7 @@ content_margin/left = -1.0
 content_margin/right = -1.0
 content_margin/top = -1.0
 content_margin/bottom = -1.0
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 margin/left = 0.0
 margin/right = 0.0
 margin/top = 0.0
@@ -99,7 +121,7 @@ content_margin/left = -1.0
 content_margin/right = -1.0
 content_margin/top = -1.0
 content_margin/bottom = -1.0
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 margin/left = 0.0
 margin/right = 0.0
 margin/top = 0.0
@@ -116,7 +138,7 @@ content_margin/left = -1.0
 content_margin/right = -1.0
 content_margin/top = -1.0
 content_margin/bottom = -1.0
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 margin/left = 0.0
 margin/right = 0.0
 margin/top = 0.0
@@ -133,7 +155,7 @@ content_margin/left = -1.0
 content_margin/right = -1.0
 content_margin/top = -1.0
 content_margin/bottom = -1.0
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 margin/left = 0.0
 margin/right = 0.0
 margin/top = 0.0
@@ -150,7 +172,7 @@ content_margin/left = -1.0
 content_margin/right = -1.0
 content_margin/top = -1.0
 content_margin/bottom = -1.0
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 margin/left = 0.0
 margin/right = 0.0
 margin/top = 0.0
@@ -167,7 +189,7 @@ content_margin/left = -1.0
 content_margin/right = -1.0
 content_margin/top = -1.0
 content_margin/bottom = -1.0
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 margin/left = 0.0
 margin/right = 0.0
 margin/top = 0.0
@@ -177,6 +199,61 @@ expand_margin/right = 0.0
 expand_margin/top = 0.0
 expand_margin/bottom = 0.0
 draw_center = true
+
+[sub_resource type="StyleBoxTexture" id=12]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+texture = ExtResource( 8 )
+margin/left = 0.0
+margin/right = 0.0
+margin/top = 0.0
+margin/bottom = 0.0
+expand_margin/left = 0.0
+expand_margin/right = 0.0
+expand_margin/top = 0.0
+expand_margin/bottom = 0.0
+draw_center = true
+
+[sub_resource type="DynamicFont" id=15]
+
+font/size = 14
+font/use_mipmaps = true
+font/use_filter = true
+font/font = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=16]
+
+font/size = 48
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 9 )
+
+[sub_resource type="StyleBoxTexture" id=13]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+texture = ExtResource( 11 )
+margin/left = 0.0
+margin/right = 0.0
+margin/top = 0.0
+margin/bottom = 0.0
+expand_margin/left = 0.0
+expand_margin/right = 0.0
+expand_margin/top = 0.0
+expand_margin/bottom = 0.0
+draw_center = true
+
+[sub_resource type="DynamicFont" id=14]
+
+font/size = 22
+font/use_mipmaps = true
+font/use_filter = true
+font/font = ExtResource( 12 )
 
 [node name="gui" type="Control"]
 
@@ -200,6 +277,7 @@ margin/left = 0.0
 margin/top = 512.0
 margin/right = 800.0
 margin/bottom = 600.0
+custom_styles/panel = SubResource( 11 )
 
 [node name="HButtonArray" type="HButtonArray" parent="towers"]
 
@@ -278,6 +356,7 @@ margin/left = 64.0
 margin/top = 480.0
 margin/right = 176.0
 margin/bottom = 600.0
+custom_styles/panel = SubResource( 12 )
 
 [node name="stats" type="Label" parent="selected"]
 
@@ -289,9 +368,7 @@ margin/left = 8.0
 margin/top = 8.0
 margin/right = 104.0
 margin/bottom = 56.0
-text = "Tower Name:
-Cost: 5
-Damage: 5"
+custom_fonts/font = SubResource( 15 )
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -303,30 +380,13 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 4.0
-margin/top = 64.0
+margin/top = 70.0
 margin/right = 108.0
-margin/bottom = 84.0
+margin/bottom = 90.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 flat = false
-
-[node name="energy" type="Label" parent="."]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 184.0
-margin/top = 488.0
-margin/right = 224.0
-margin/bottom = 502.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "Power: 50"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="error" type="Label" parent="."]
 
@@ -335,11 +395,12 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 32.0
-margin/top = 24.0
+margin/top = 10.0
 margin/right = 760.0
-margin/bottom = 38.0
-custom_colors/font_color = Color( 0.941406, 0.102966, 0.102966, 1 )
-custom_colors/font_color_shadow = Color( 0.898438, 0.087738, 0.087738, 1 )
+margin/bottom = 67.0
+custom_fonts/font = SubResource( 16 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 align = 1
 valign = 3
 percent_visible = 1.0
@@ -349,7 +410,7 @@ max_lines_visible = -1
 [node name="error_timer" type="Timer" parent="error"]
 
 process_mode = 1
-wait_time = 1.0
+wait_time = 5.0
 one_shot = true
 autostart = false
 
@@ -357,10 +418,45 @@ autostart = false
 
 transform/pos = Vector2( 536, 496 )
 transform/scale = Vector2( 7.5, 0.25 )
-script/script = ExtResource( 7 )
+script/script = ExtResource( 10 )
 FULL_COLOR = Color( 1, 0.1, 0.1, 1 )
 EMPTY_COLOR = Color( 1, 0.1, 0.1, 1 )
 BORDER_COLOR = Color( 0.66, 0.66, 0.66, 1 )
 BORDER_SIZE = 0.01
+
+[node name="power_panel" type="Panel" parent="."]
+
+visibility/opacity = 0.5
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 512.0
+margin/right = 64.0
+margin/bottom = 600.0
+custom_styles/panel = SubResource( 13 )
+
+[node name="energy" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 3.0
+margin/top = 514.0
+margin/right = 64.0
+margin/bottom = 600.0
+custom_fonts/font = SubResource( 14 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+text = "999"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 

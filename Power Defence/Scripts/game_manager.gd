@@ -21,6 +21,7 @@ func _ready():
 	calculate_wave()
 	
 func calculate_wave():
+	get_node("gui/energy").set_text(str(current_energy))
 	current_wave += 1
 	target_count = ((((current_wave + 1)/2.0) + ((1 + 1)/1.5)) * 3);
 	targets_alive = target_count
@@ -85,14 +86,14 @@ func update_energy():
 		show_error("Game Over!")
 	elif powered_off == towers.size() && cant_afford_tower && towers.size() > 0:
 		show_error("Game Over!")
-	get_node("gui/energy").set_text("Power: " + str(current_energy))
+	get_node("gui/energy").set_text(str(current_energy))
 
 func place_tower(tower, tile):
 	if (current_energy - tower.build_cost < 0):
 		show_error("Not enough power!")
 		return false
 	current_energy -= tower.build_cost
-	get_node("gui/energy").set_text("Power: " + str(current_energy))
+	get_node("gui/energy").set_text(str(current_energy))
 	towers[tile] = tower
 	get_node("SamplePlayer").play("place_0" + str(floor(rand_range(1,4))))
 	var tower_to_place = get_node("player").active_tower
@@ -101,6 +102,10 @@ func place_tower(tower, tile):
 	tower_to_place.activate()
 	get_node("player").active_tower = null
 	get_node("player").set_active_tower(-1)
+	get_node("Camera2D").shake(rand_range(5, 7), rand_range(0.5, 1))
+
+func shake(time, amount):
+	get_node("Camera2D").shake(time, amount)
 
 func select_tower(pos):
 	if (pos in towers):
@@ -108,7 +113,7 @@ func select_tower(pos):
 			if (towers[pos].ready):
 				towers[pos].collect()
 				current_energy += towers[pos].energy_generation
-				get_node("gui/energy").set_text("Power: " + str(current_energy))
+				get_node("gui/energy").set_text(str(current_energy))
 		get_node("gui").tower_selected(towers[pos])
 
 func can_place(pos):
@@ -116,3 +121,4 @@ func can_place(pos):
 
 func show_error(error):
 	get_node("gui").show_error(error)
+	get_node("SamplePlayer").play("error")

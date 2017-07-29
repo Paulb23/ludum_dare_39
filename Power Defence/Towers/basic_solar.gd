@@ -38,12 +38,14 @@ func generated():
 		return 
 	generating = false
 	ready = true
+	get_node("SamplePlayer").play("power_ready")
 	animation.play("created")
 	get_node("Sprite").set_frame(6)
 	
 func collect():
 	ready = false
 	get_node("Sprite").set_frame(0)
+	get_node("SamplePlayer").play("power_0" + str(floor(rand_range(1,4))))
 	animation.play("power off")
 
 func activate():

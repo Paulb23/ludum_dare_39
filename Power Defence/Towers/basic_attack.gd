@@ -17,6 +17,7 @@ var energy_generation = 0
 var area = CircleShape2D.new()
 
 var fire_timer
+var shoot_timer
 
 func _ready():
 	area.set_radius(32*3)
@@ -36,8 +37,9 @@ func _fixed_process(delta):
 			has_target = true
 		if (fire_timer.get_time_left() == 0):
 			fire_timer.start()
-			fire()
-			get_node("AnimationPlayer").play("fire")
+			if (shoot_timer.get_time_left() == 0):
+				shoot_timer.start()
+				fire()
 	if (!has_target and target_list.size() <= 0):
 		fire_timer.stop()
 	
@@ -68,11 +70,14 @@ func fire():
 		new_projectile.set_target(target);
 		new_projectile.set_pos(get_pos())
 		get_parent().add_child(new_projectile)
+		get_node("AnimationPlayer").play("fire")
+		get_node("SamplePlayer").play("shoot_0" + str(floor(rand_range(1,4))))
 	
 func activate():
 	connect("area_enter", self, "target_entered")
 	connect("area_exit", self, "target_exited")
 	fire_timer = get_node("fire_timer")
 	fire_timer.connect("timeout", self, "fire")
+	shoot_timer = get_node("shoot_timer")
 	activated = true
 	set_fixed_process(true)
