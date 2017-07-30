@@ -14,6 +14,7 @@ func _ready():
 	get_node("towers/HButtonArray/solar_tower").connect("pressed", self, "basic_solar")
 	get_node("towers/HButtonArray/basic_attack").connect("pressed", self, "basic_attack")
 	get_node("towers/HButtonArray/fast_attack").connect("pressed", self, "fast_attack")
+	get_node("towers/HButtonArray/splitter_attack").connect("pressed", self, "splitter_attack")
 	get_node("towers/HButtonArray/remove_tower").connect("pressed", self, "remove_tower")
 	get_node("selected/power_button").connect("pressed", self, "toggle_power")
 	
@@ -30,6 +31,9 @@ func fast_attack():
 	
 func remove_tower():
 	select_tower(3)
+	
+func splitter_attack():
+	select_tower(4)
 
 func select_tower(tower):
 	if disabled:
@@ -64,7 +68,12 @@ func toggle_power():
 func tower_selected(tower):
 	if disabled && !allow_selection:
 		return
+	if selected_tower != null:
+		selected_tower.selected = false
+		selected_tower.update()
 	selected_tower = tower
+	selected_tower.selected = true
+	selected_tower.update()
 	get_node("selected/stats").set_text(tower.name + "\nCost: " + str(tower.energy_cost) + "\nDmg: " + str(tower.dmg)) 
 	if (tower.powered):
 		get_node("selected/power_button").set_text("Power Off")

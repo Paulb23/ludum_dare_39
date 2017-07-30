@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=1]
+[gd_scene load_steps=50 format=1]
 
 [ext_resource path="res://GUI/gui.gd" type="Script" id=1]
 [ext_resource path="res://GUI/panel.png" type="Texture" id=2]
@@ -11,11 +11,13 @@
 [ext_resource path="res://Icons/fast_attack/attack_normal.png" type="Texture" id=9]
 [ext_resource path="res://Icons/remove_tower/remove_hover.png" type="Texture" id=10]
 [ext_resource path="res://Icons/remove_tower/remove_normal.png" type="Texture" id=11]
-[ext_resource path="res://GUI/panel_card.png" type="Texture" id=12]
-[ext_resource path="res://Fonts/nasalization-rg.ttf" type="DynamicFontData" id=13]
-[ext_resource path="res://Scripts/bar.gd" type="Script" id=14]
-[ext_resource path="res://GUI/power_panel.png" type="Texture" id=15]
-[ext_resource path="res://Fonts/batmfa__.ttf" type="DynamicFontData" id=16]
+[ext_resource path="res://Icons/splitter/attack_hover.png" type="Texture" id=12]
+[ext_resource path="res://Icons/splitter/attack_normal.png" type="Texture" id=13]
+[ext_resource path="res://GUI/panel_card.png" type="Texture" id=14]
+[ext_resource path="res://Fonts/nasalization-rg.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://Scripts/bar.gd" type="Script" id=16]
+[ext_resource path="res://GUI/power_panel.png" type="Texture" id=17]
+[ext_resource path="res://Fonts/batmfa__.ttf" type="DynamicFontData" id=18]
 
 [sub_resource type="StyleBoxTexture" id=1]
 
@@ -374,7 +376,7 @@ expand_margin/top = 0.0
 expand_margin/bottom = 0.0
 draw_center = true
 
-[sub_resource type="StyleBoxTexture" id=12]
+[sub_resource type="StyleBoxTexture" id=27]
 
 content_margin/left = -1.0
 content_margin/right = -1.0
@@ -391,19 +393,104 @@ expand_margin/top = 0.0
 expand_margin/bottom = 0.0
 draw_center = true
 
+[sub_resource type="StyleBoxTexture" id=28]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+texture = ExtResource( 12 )
+margin/left = 0.0
+margin/right = 0.0
+margin/top = 0.0
+margin/bottom = 0.0
+expand_margin/left = 0.0
+expand_margin/right = 0.0
+expand_margin/top = 0.0
+expand_margin/bottom = 0.0
+draw_center = true
+
+[sub_resource type="StyleBoxTexture" id=29]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+texture = ExtResource( 12 )
+margin/left = 0.0
+margin/right = 0.0
+margin/top = 0.0
+margin/bottom = 0.0
+expand_margin/left = 0.0
+expand_margin/right = 0.0
+expand_margin/top = 0.0
+expand_margin/bottom = 0.0
+draw_center = true
+
+[sub_resource type="StyleBoxTexture" id=30]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+texture = ExtResource( 13 )
+margin/left = 0.0
+margin/right = 0.0
+margin/top = 0.0
+margin/bottom = 0.0
+expand_margin/left = 0.0
+expand_margin/right = 0.0
+expand_margin/top = 0.0
+expand_margin/bottom = 0.0
+draw_center = true
+
+[sub_resource type="StyleBoxTexture" id=31]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+texture = ExtResource( 13 )
+margin/left = 0.0
+margin/right = 0.0
+margin/top = 0.0
+margin/bottom = 0.0
+expand_margin/left = 0.0
+expand_margin/right = 0.0
+expand_margin/top = 0.0
+expand_margin/bottom = 0.0
+draw_center = true
+
+[sub_resource type="StyleBoxTexture" id=12]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+texture = ExtResource( 14 )
+margin/left = 0.0
+margin/right = 0.0
+margin/top = 0.0
+margin/bottom = 0.0
+expand_margin/left = 0.0
+expand_margin/right = 0.0
+expand_margin/top = 0.0
+expand_margin/bottom = 0.0
+draw_center = true
+
 [sub_resource type="DynamicFont" id=13]
 
 font/size = 14
 font/use_mipmaps = true
 font/use_filter = true
-font/font = ExtResource( 13 )
+font/font = ExtResource( 15 )
 
 [sub_resource type="DynamicFont" id=14]
 
 font/size = 48
 font/use_mipmaps = false
 font/use_filter = false
-font/font = ExtResource( 13 )
+font/font = ExtResource( 15 )
 
 [sub_resource type="StyleBoxTexture" id=15]
 
@@ -411,7 +498,7 @@ content_margin/left = -1.0
 content_margin/right = -1.0
 content_margin/top = -1.0
 content_margin/bottom = -1.0
-texture = ExtResource( 15 )
+texture = ExtResource( 17 )
 margin/left = 0.0
 margin/right = 0.0
 margin/top = 0.0
@@ -427,7 +514,7 @@ draw_center = true
 font/size = 22
 font/use_mipmaps = true
 font/use_filter = true
-font/font = ExtResource( 16 )
+font/font = ExtResource( 18 )
 
 [node name="gui" type="Control"]
 
@@ -573,6 +660,33 @@ enabled_focus_mode = 2
 shortcut = null
 flat = false
 
+[node name="splitter_attack" type="Button" parent="towers/HButtonArray"]
+
+hint/tooltip = "Splitter
+Why only attack in one direction? Attack them all!
+
+Build Cost: 10
+Running Cost: 15
+Damage: 6
+Produces: 0"
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 192.0
+margin/top = -16.0
+margin/right = 240.0
+margin/bottom = 48.0
+custom_styles/hover = SubResource( 27 )
+custom_styles/pressed = SubResource( 28 )
+custom_styles/focus = SubResource( 29 )
+custom_styles/disabled = SubResource( 30 )
+custom_styles/normal = SubResource( 31 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
 [node name="selected" type="Panel" parent="."]
 
 focus/ignore_mouse = false
@@ -645,7 +759,7 @@ autostart = false
 
 transform/pos = Vector2( 536, 496 )
 transform/scale = Vector2( 7.5, 0.25 )
-script/script = ExtResource( 14 )
+script/script = ExtResource( 16 )
 FULL_COLOR = Color( 1, 0.1, 0.1, 1 )
 EMPTY_COLOR = Color( 1, 0.1, 0.1, 1 )
 BORDER_COLOR = Color( 0.66, 0.66, 0.66, 1 )

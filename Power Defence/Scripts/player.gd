@@ -4,7 +4,8 @@ var towers = [
 	load("res://Towers/basic_solar.tscn"),
 	load("res://Towers/basic_attack.tscn"),
 	load("res://Towers/fast_attack.tscn"),
-	load("res://Towers/remover.tscn")
+	load("res://Towers/remover.tscn"),
+	load("res://Towers/splitter_attack.tscn")
 ]
 
 var tile_size = 32

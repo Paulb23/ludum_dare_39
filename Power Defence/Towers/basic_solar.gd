@@ -6,7 +6,7 @@ var build_cost = 5
 var energy_generation = 10
 var activated = false
 var dmg = 0
-
+var selected
 var powered = true
 var generating = false
 var ready = false

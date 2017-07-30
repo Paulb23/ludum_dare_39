@@ -7,6 +7,7 @@ var activated = false
 var has_target = false
 var target_list = []
 var target = null
+var selected = false
 
 var dmg = 2
 var powered = true
@@ -61,7 +62,7 @@ func target_exited(body):
 	target_list.erase(body)
 	
 func _draw():
-	if (!activated):
+	if (!activated || selected):
 		draw_circle(get_node("Sprite").get_pos(), area.get_radius(), Color("11272726"))
 		
 func fire():
