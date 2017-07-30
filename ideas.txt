@@ -23,3 +23,34 @@ Theme:- Running out of Power
 		- Tower defence
 		- Located on another planet
 		- towers cost power to upkeep
+
+-- todo
+	- add  effects for reaching end of screen -- maybe flash screen?
+	- add start of wave warning -- maybe
+	- create menus
+		- game over
+		- pause
+		
+	- create tutorial
+	- if time create more levels
+	
+	- create more targets
+		- splitter
+		- tank
+		- fast
+
+	- create more towers
+		- circle
+		- fast shooter
+		- bomb
+
+	- add upgrades
+	- ability to remove towers
+
+	- menu music and effects
+	
+	- make power gen more noticable!
+
+	- custom cursor
+
+	
