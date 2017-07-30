@@ -1,9 +1,9 @@
 extends PathFollow2D
 
-var speed = 0.02
-var dmg = 10
+var speed = 0.1
+var dmg = 5
 
-var health = 8
+var health = 5
 
 var dead = false
 

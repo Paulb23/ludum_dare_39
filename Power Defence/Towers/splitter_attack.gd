@@ -8,8 +8,8 @@ var target_list = []
 
 var dmg = 6
 var powered = true
-var energy_cost = 15
-var build_cost = 10
+var energy_cost = 7
+var build_cost = 5
 var energy_generation = 0
 
 var area = CircleShape2D.new()
@@ -31,7 +31,7 @@ func _fixed_process(delta):
 	if (!activated || !powered):
 		return
 	
-	if (target_list.size() > 0):
+	if (target_list.size() > 0 && first_target):
 		if (fire_timer.get_time_left() == 0):
 			fire_timer.start()
 			if (shoot_timer.get_time_left() == 0 && first_target):
@@ -62,7 +62,7 @@ func _draw():
 func fire():
 	if (powered):
 		var dist = area.get_radius()
-		for i in range(0, 360, 10):
+		for i in range(0, 360, 15):
 			var X = get_pos().x + (dist * cos(i))  
 			var Y = get_pos().y + (dist * sin(i))
 			var new_projectile = projectile.instance()

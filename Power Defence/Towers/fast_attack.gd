@@ -9,7 +9,7 @@ var target_list = []
 var target = null
 var selected = false
 
-var dmg = 2
+var dmg = 3
 var powered = true
 var energy_cost = 12
 var build_cost = 7

@@ -10,8 +10,8 @@ var target = null
 var selected = false
 var dmg = 5
 var powered = true
-var energy_cost = 10
-var build_cost = 5
+var energy_cost = 5
+var build_cost = 2
 var energy_generation = 0
 
 var area = CircleShape2D.new()

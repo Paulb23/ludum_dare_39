@@ -62,25 +62,25 @@ samples/power_on = {
 "sample": ExtResource( 4 )
 }
 samples/shoot_01 = {
-"db": 0.0,
+"db": -10.0,
 "pitch": 1.0,
 "priority": 0,
 "sample": ExtResource( 5 )
 }
 samples/shoot_02 = {
-"db": 0.0,
+"db": -10.0,
 "pitch": 1.0,
 "priority": 0,
 "sample": ExtResource( 6 )
 }
 samples/shoot_03 = {
-"db": 0.0,
+"db": -10.0,
 "pitch": 1.0,
 "priority": 0,
 "sample": ExtResource( 7 )
 }
 samples/shoot_04 = {
-"db": 0.0,
+"db": -10.0,
 "pitch": 1.0,
 "priority": 0,
 "sample": ExtResource( 8 )
@@ -115,14 +115,14 @@ hframes = 6
 [node name="fire_timer" type="Timer" parent="."]
 
 process_mode = 1
-wait_time = 0.8
+wait_time = 0.4
 one_shot = false
 autostart = false
 
 [node name="shoot_timer" type="Timer" parent="."]
 
 process_mode = 1
-wait_time = 0.8
+wait_time = 0.4
 one_shot = true
 autostart = false
 

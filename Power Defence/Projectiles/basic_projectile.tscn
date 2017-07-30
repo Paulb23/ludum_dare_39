@@ -32,25 +32,25 @@ tracks/0/keys = {
 [sub_resource type="SampleLibrary" id=3]
 
 samples/explode_01 = {
-"db": 0.0,
+"db": -10.0,
 "pitch": 1.0,
 "priority": 0,
 "sample": ExtResource( 3 )
 }
 samples/explode_02 = {
-"db": 0.0,
+"db": -10.0,
 "pitch": 1.0,
 "priority": 0,
 "sample": ExtResource( 4 )
 }
 samples/explode_03 = {
-"db": 0.0,
+"db": -10.0,
 "pitch": 1.0,
 "priority": 0,
 "sample": ExtResource( 5 )
 }
 samples/explode_04 = {
-"db": 0.0,
+"db": -10.0,
 "pitch": 1.0,
 "priority": 0,
 "sample": ExtResource( 6 )

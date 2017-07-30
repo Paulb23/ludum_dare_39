@@ -560,7 +560,7 @@ button/align = 0
 hint/tooltip = "Solar Tower
 The basic energy generator, uses the sun.
 
-Build Cost: 5
+Build Cost: 1
 Running Cost: 2
 Damage: 0
 Produces: 10"
@@ -587,7 +587,7 @@ flat = false
 hint/tooltip = "Lawn Keepers
 The basic attacking tower.
 
-Build Cost: 5
+Build Cost: 2
 Running Cost: 10
 Damage: 5
 Produces: 0"
@@ -616,7 +616,7 @@ Keep `em down by attacking quicker!
 
 Build Cost: 7
 Running Cost: 12
-Damage: 2
+Damage: 3
 Produces: 0"
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -665,8 +665,8 @@ flat = false
 hint/tooltip = "Splitter
 Why only attack in one direction? Attack them all!
 
-Build Cost: 10
-Running Cost: 15
+Build Cost: 5
+Running Cost: 7
 Damage: 6
 Produces: 0"
 focus/ignore_mouse = false
