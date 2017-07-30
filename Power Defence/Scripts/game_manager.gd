@@ -51,6 +51,7 @@ func spawn_targets():
 
 func spawn_target(target):
 	var target = targets_basic[0].instance()
+	target.health = target.health + (target.health / 10) * current_wave
 	get_node("path").add_child(target)
 	
 func killed_target():

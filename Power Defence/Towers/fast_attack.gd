@@ -70,6 +70,7 @@ func fire():
 		new_projectile.set_target(target);
 		new_projectile.set_pos(get_pos())
 		new_projectile.dmg = dmg
+		new_projectile.speed = 250
 		get_parent().add_child(new_projectile)
 		get_node("AnimationPlayer").play("fire")
 		get_node("SamplePlayer").play("shoot_0" + str(floor(rand_range(1,4))))
