@@ -91,7 +91,9 @@ script/script = ExtResource( 1 )
 transform/pos = Vector2( 400, 304 )
 texture = ExtResource( 2 )
 
-[node name="title" type="Label" parent="."]
+[node name="menu" type="Node2D" parent="."]
+
+[node name="title" type="Label" parent="menu"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -107,7 +109,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite" parent="menu"]
 
 transform/pos = Vector2( 144, 528 )
 transform/scale = Vector2( 4.5, 4.5 )
@@ -115,7 +117,7 @@ texture = ExtResource( 4 )
 vframes = 6
 hframes = 6
 
-[node name="Sprite1" type="Sprite" parent="."]
+[node name="Sprite1" type="Sprite" parent="menu"]
 
 transform/pos = Vector2( 656, 528 )
 transform/scale = Vector2( 4.5, 4.5 )
@@ -123,7 +125,7 @@ texture = ExtResource( 4 )
 vframes = 6
 hframes = 6
 
-[node name="Sprite2" type="Sprite" parent="."]
+[node name="Sprite2" type="Sprite" parent="menu"]
 
 transform/pos = Vector2( 400, 509 )
 transform/scale = Vector2( 5.75, 5.75 )
@@ -131,7 +133,7 @@ texture = ExtResource( 5 )
 vframes = 6
 hframes = 6
 
-[node name="Sprite3" type="Sprite" parent="."]
+[node name="Sprite3" type="Sprite" parent="menu"]
 
 transform/pos = Vector2( 256, 544 )
 transform/rot = 25.0
@@ -140,7 +142,7 @@ texture = ExtResource( 6 )
 vframes = 6
 hframes = 6
 
-[node name="Sprite4" type="Sprite" parent="."]
+[node name="Sprite4" type="Sprite" parent="menu"]
 
 transform/pos = Vector2( 528, 544 )
 transform/rot = -25.0
@@ -149,7 +151,7 @@ texture = ExtResource( 6 )
 vframes = 6
 hframes = 6
 
-[node name="play" type="Button" parent="."]
+[node name="play" type="Button" parent="menu"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -174,7 +176,7 @@ shortcut = null
 text = "Play"
 flat = false
 
-[node name="exit" type="Button" parent="."]
+[node name="exit" type="Button" parent="menu"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -199,7 +201,7 @@ shortcut = null
 text = "exit"
 flat = false
 
-[node name="info" type="Label" parent="."]
+[node name="info" type="Label" parent="menu"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -215,7 +217,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="music_vol" type="HSlider" parent="."]
+[node name="music_vol" type="HSlider" parent="menu"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -236,7 +238,7 @@ tick_count = 0
 ticks_on_borders = true
 focus_mode = 2
 
-[node name="sfx_vol" type="HSlider" parent="."]
+[node name="sfx_vol" type="HSlider" parent="menu"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -257,7 +259,7 @@ tick_count = 0
 ticks_on_borders = true
 focus_mode = 2
 
-[node name="music_label" type="Label" parent="."]
+[node name="music_label" type="Label" parent="menu"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -273,7 +275,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="sfx_label" type="Label" parent="."]
+[node name="sfx_label" type="Label" parent="menu"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
