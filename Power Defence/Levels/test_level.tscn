@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=1]
+[gd_scene load_steps=18 format=1]
 
 [ext_resource path="res://Scripts/game_manager.gd" type="Script" id=1]
 [ext_resource path="res://Tiles/can_place_tiles.tres" type="TileSet" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Audio/place_04.wav" type="Sample" id=12]
 [ext_resource path="res://Music/theme_01.ogg" type="AudioStream" id=13]
 [ext_resource path="res://Scripts/camrea.gd" type="Script" id=14]
+[ext_resource path="res://Menus/pause_menu.tscn" type="PackedScene" id=15]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -174,5 +175,9 @@ drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 script/script = ExtResource( 14 )
+
+[node name="pause_menu" parent="." instance=ExtResource( 15 )]
+
+transform/pos = Vector2( -999, -999 )
 
 

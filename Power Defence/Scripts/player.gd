@@ -16,6 +16,11 @@ func _ready():
 	set_process_input(true)
 	
 func _input(event):
+	if (event.type == InputEvent.KEY && event.scancode == KEY_ESCAPE && !event.echo):
+		print("pausingas")
+		get_parent().get_node("pause_menu").show()
+		get_tree().set_pause(true)
+	
 	if (active_tower != null):
 		if (event.type == InputEvent.MOUSE_BUTTON && event.button_mask == BUTTON_MASK_RIGHT):
 			active_tower.queue_free()
