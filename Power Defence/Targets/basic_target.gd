@@ -17,6 +17,9 @@ func _fixed_process(delta):
 	set_unit_offset(get_unit_offset()+speed*delta)
 	
 	if get_unit_offset() >= 0.99:
+		get_parent().get_parent().get_node("SamplePlayer").play("hit_base")
+		Globals.get("currentCamera").shake(rand_range(5, 7), rand_range(1, 5))
+		
 		get_parent().get_parent().take_dmg(dmg)
 		get_parent().get_parent().killed_target()
 		queue_free()
@@ -24,5 +27,4 @@ func _fixed_process(delta):
 func hit():
 	get_parent().get_parent().killed_target()
 	get_node("AnimationPlayer").play("death")
-	get_parent().get_parent().shake(rand_range(5, 7), rand_range(5, 7))
 	dead = true

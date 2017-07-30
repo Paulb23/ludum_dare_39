@@ -34,6 +34,7 @@ func attack(body):
 		return 
 	body.get_parent().hit()
 	dead = true
+	Globals.get("currentCamera").shake(rand_range(5, 7), rand_range(1, 5))
 	get_node("AnimationPlayer").play("death")
 	get_node("SamplePlayer").play("explode_0" + str(floor(rand_range(1,4))))
 	

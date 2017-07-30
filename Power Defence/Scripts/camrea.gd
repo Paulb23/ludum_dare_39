@@ -15,4 +15,5 @@ func _fixed_process(delta):
 		set_offset(Vector2(0,0))
 
 func _ready():
+	Globals.set("currentCamera", self)
 	set_fixed_process(true)
