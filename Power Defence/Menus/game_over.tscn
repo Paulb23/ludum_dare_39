@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=1]
+[gd_scene load_steps=18 format=1]
 
 [ext_resource path="res://Menus/game_over.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/Aero.ttf" type="DynamicFontData" id=2]
@@ -6,8 +6,9 @@
 [ext_resource path="res://Audio/menu_hover.wav" type="Sample" id=4]
 [ext_resource path="res://Audio/menu_select.wav" type="Sample" id=5]
 [ext_resource path="res://Music/game_over.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Fonts/batmfa__.ttf" type="DynamicFontData" id=7]
 
-[sub_resource type="StyleBoxFlat" id=11]
+[sub_resource type="StyleBoxFlat" id=1]
 
 content_margin/left = -1.0
 content_margin/right = -1.0
@@ -20,12 +21,26 @@ border_size = 4
 border_blend = true
 draw_bg = true
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 
 font/size = 62
 font/use_mipmaps = false
 font/use_filter = false
 font/font = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
 
 [sub_resource type="StyleBoxEmpty" id=5]
 
@@ -48,28 +63,14 @@ content_margin/right = -1.0
 content_margin/top = -1.0
 content_margin/bottom = -1.0
 
-[sub_resource type="StyleBoxEmpty" id=8]
-
-content_margin/left = -1.0
-content_margin/right = -1.0
-content_margin/top = -1.0
-content_margin/bottom = -1.0
-
-[sub_resource type="StyleBoxEmpty" id=9]
-
-content_margin/left = -1.0
-content_margin/right = -1.0
-content_margin/top = -1.0
-content_margin/bottom = -1.0
-
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=8]
 
 font/size = 32
 font/use_mipmaps = true
 font/use_filter = true
 font/font = ExtResource( 3 )
 
-[sub_resource type="SampleLibrary" id=10]
+[sub_resource type="SampleLibrary" id=9]
 
 samples/menu_hover = {
 "db": 0.0,
@@ -83,6 +84,13 @@ samples/menu_select = {
 "priority": 0,
 "sample": ExtResource( 5 )
 }
+
+[sub_resource type="DynamicFont" id=10]
+
+font/size = 32
+font/use_mipmaps = true
+font/use_filter = true
+font/font = ExtResource( 7 )
 
 [node name="game_over" type="Node2D"]
 
@@ -99,7 +107,7 @@ margin/left = 192.0
 margin/top = 16.0
 margin/right = 592.0
 margin/bottom = 400.0
-custom_styles/panel = SubResource( 11 )
+custom_styles/panel = SubResource( 1 )
 
 [node name="title" type="Label" parent="."]
 
@@ -111,7 +119,7 @@ margin/left = 112.0
 margin/top = 32.0
 margin/right = 667.0
 margin/bottom = 92.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Game Over!"
 align = 1
 percent_visible = 1.0
@@ -125,15 +133,15 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 192.0
-margin/top = 240.0
+margin/top = 272.0
 margin/right = 592.0
-margin/bottom = 284.0
-custom_styles/hover = SubResource( 5 )
-custom_styles/pressed = SubResource( 6 )
-custom_styles/focus = SubResource( 7 )
-custom_styles/disabled = SubResource( 8 )
-custom_styles/normal = SubResource( 9 )
-custom_fonts/font = SubResource( 3 )
+margin/bottom = 316.0
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0.390625, 0.390625, 0.390625, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
 custom_colors/font_color_pressed = Color( 0.824219, 0.824219, 0.824219, 1 )
@@ -150,15 +158,15 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 192.0
-margin/top = 304.0
+margin/top = 336.0
 margin/right = 592.0
-margin/bottom = 348.0
-custom_styles/hover = SubResource( 5 )
-custom_styles/pressed = SubResource( 6 )
-custom_styles/focus = SubResource( 7 )
-custom_styles/disabled = SubResource( 8 )
-custom_styles/normal = SubResource( 9 )
-custom_fonts/font = SubResource( 3 )
+margin/bottom = 380.0
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0.390625, 0.390625, 0.390625, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
 custom_colors/font_color_pressed = Color( 0.824219, 0.824219, 0.824219, 1 )
@@ -171,7 +179,7 @@ flat = false
 [node name="SamplePlayer" type="SamplePlayer" parent="."]
 
 config/polyphony = 1
-config/samples = SubResource( 10 )
+config/samples = SubResource( 9 )
 default/volume_db = 0.0
 default/pitch_scale = 1.0
 default/pan = 0.0
@@ -195,5 +203,42 @@ stream/autoplay = false
 stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 5000
+
+[node name="Label" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 240.0
+margin/top = 96.0
+margin/right = 548.0
+margin/bottom = 339.0
+custom_fonts/font = SubResource( 10 )
+text = "You Defeated:
+
+
+Waves!"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="waves" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 240.0
+margin/top = 144.0
+margin/right = 548.0
+margin/bottom = 177.0
+custom_fonts/font = SubResource( 10 )
+text = "999"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 
