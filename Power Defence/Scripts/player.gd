@@ -2,7 +2,8 @@ extends Node2D
 
 var towers = [
 	load("res://Towers/basic_solar.tscn"),
-	load("res://Towers/basic_attack.tscn")
+	load("res://Towers/basic_attack.tscn"),
+	load("res://Towers/fast_attack.tscn")
 ]
 
 var tile_size = 32

@@ -32,7 +32,7 @@ func _fixed_process(delta):
 func attack(body):
 	if (body.get_name().find("target") == -1 || dead):
 		return 
-	body.get_parent().hit()
+	body.get_parent().hit(dmg)
 	dead = true
 	Globals.get("currentCamera").shake(rand_range(5, 7), rand_range(1, 5))
 	get_node("AnimationPlayer").play("death")

@@ -3,6 +3,8 @@ extends PathFollow2D
 var speed = 0.05
 var dmg = 7
 
+var health = 5
+
 var dead = false
 
 func _ready():
@@ -24,7 +26,9 @@ func _fixed_process(delta):
 		get_parent().get_parent().killed_target()
 		queue_free()
 	
-func hit():
-	get_parent().get_parent().killed_target()
-	get_node("AnimationPlayer").play("death")
-	dead = true
+func hit(dmg):
+	health -= dmg
+	if health <= 0:
+		get_parent().get_parent().killed_target()
+		get_node("AnimationPlayer").play("death")
+		dead = true

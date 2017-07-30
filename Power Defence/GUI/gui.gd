@@ -11,6 +11,7 @@ signal solar_selected
 func _ready():
 	get_node("towers/HButtonArray/solar_tower").connect("pressed", self, "basic_solar")
 	get_node("towers/HButtonArray/basic_attack").connect("pressed", self, "basic_attack")
+	get_node("towers/HButtonArray/fast_attack").connect("pressed", self, "fast_attack")
 	get_node("selected/power_button").connect("pressed", self, "toggle_power")
 	
 	get_node("error/error_timer").connect("timeout", self, "hide_error")
@@ -20,6 +21,9 @@ func basic_solar():
 	
 func basic_attack():
 	select_tower(1)
+	
+func fast_attack():
+	select_tower(2)
 
 func select_tower(tower):
 	if disabled:

@@ -2,16 +2,16 @@ extends Area2D
 
 var projectile = load("res://Projectiles/basic_projectile.tscn")
 
-var name = "Lawn Keeper"
+var name = "Fast Attack"
 var activated = false
 var has_target = false
 var target_list = []
 var target = null
 
-var dmg = 5
+var dmg = 2
 var powered = true
-var energy_cost = 10
-var build_cost = 5
+var energy_cost = 12
+var build_cost = 7
 var energy_generation = 0
 
 var area = CircleShape2D.new()

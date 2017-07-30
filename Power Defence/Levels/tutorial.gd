@@ -110,7 +110,7 @@ func start_tutorial():
 	get_node("tut_text/Button").show()
 	get_node("tut_text").show_text("\n    When powered off it does nothing, and costs nothing.")
 	yield(get_node("tut_text"), "next_text")
-	get_node("tut_text").show_text("\n    To turn it back on we need enough power. In this case 1.")
+	get_node("tut_text").show_text("\n    To turn it back on we need enough power. In this case 2.")
 	yield(get_node("tut_text"), "next_text")
 	get_node("gui").allow_power = true
 	get_node("tut_text/Button").hide()
