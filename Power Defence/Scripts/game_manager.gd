@@ -80,7 +80,7 @@ func update_energy():
 			powered_off += 1;
 			if (current_energy - tower.energy_cost >= 0):
 				cant_afford_tower = false
-			tower.powered = false
+			tower.poweroff()
 			
 	if towers.size() <= 0 && current_energy <= 0:
 		show_error("Game Over!")

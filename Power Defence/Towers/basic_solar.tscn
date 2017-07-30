@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=15 format=1]
 
 [ext_resource path="res://Towers/basic_solar.gd" type="Script" id=1]
 [ext_resource path="res://Towers/basic_solar.png" type="Texture" id=2]
@@ -6,7 +6,9 @@
 [ext_resource path="res://Audio/power_02.wav" type="Sample" id=4]
 [ext_resource path="res://Audio/power_03.wav" type="Sample" id=5]
 [ext_resource path="res://Audio/power_04.wav" type="Sample" id=6]
-[ext_resource path="res://Audio/power_ready.wav" type="Sample" id=7]
+[ext_resource path="res://Audio/power_off.wav" type="Sample" id=7]
+[ext_resource path="res://Audio/power_on.wav" type="Sample" id=8]
+[ext_resource path="res://Audio/power_ready.wav" type="Sample" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -90,11 +92,23 @@ samples/power_04 = {
 "priority": 0,
 "sample": ExtResource( 6 )
 }
-samples/power_ready = {
+samples/power_off = {
 "db": 0.0,
 "pitch": 1.0,
 "priority": 0,
 "sample": ExtResource( 7 )
+}
+samples/power_on = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 8 )
+}
+samples/power_ready = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 9 )
 }
 
 [node name="basic_solar" type="Area2D"]

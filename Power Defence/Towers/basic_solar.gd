@@ -52,3 +52,12 @@ func activate():
 	activated = true
 	set_fixed_process(true)
 	pass
+	
+func poweron():
+	powered = true
+	get_node("SamplePlayer").play("power_on")
+	
+func poweroff():
+	powered = false
+	get_node("SamplePlayer").play("power_off")
+	

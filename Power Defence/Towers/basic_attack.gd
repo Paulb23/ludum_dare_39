@@ -81,3 +81,11 @@ func activate():
 	shoot_timer = get_node("shoot_timer")
 	activated = true
 	set_fixed_process(true)
+	
+func poweron():
+	powered = true
+	get_node("SamplePlayer").play("power_on")
+	
+func poweroff():
+	powered = false
+	get_node("SamplePlayer").play("power_off")

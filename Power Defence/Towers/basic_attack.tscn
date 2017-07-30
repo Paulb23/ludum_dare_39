@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://Towers/basic_attack.gd" type="Script" id=1]
 [ext_resource path="res://Towers/basic_attack.png" type="Texture" id=2]
-[ext_resource path="res://Audio/shoot_01.wav" type="Sample" id=3]
-[ext_resource path="res://Audio/shoot_02.wav" type="Sample" id=4]
-[ext_resource path="res://Audio/shoot_03.wav" type="Sample" id=5]
-[ext_resource path="res://Audio/shoot_04.wav" type="Sample" id=6]
+[ext_resource path="res://Audio/power_off.wav" type="Sample" id=3]
+[ext_resource path="res://Audio/power_on.wav" type="Sample" id=4]
+[ext_resource path="res://Audio/shoot_01.wav" type="Sample" id=5]
+[ext_resource path="res://Audio/shoot_02.wav" type="Sample" id=6]
+[ext_resource path="res://Audio/shoot_03.wav" type="Sample" id=7]
+[ext_resource path="res://Audio/shoot_04.wav" type="Sample" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -48,29 +50,41 @@ tracks/0/keys = {
 
 [sub_resource type="SampleLibrary" id=4]
 
-samples/shoot_01 = {
+samples/power_off = {
 "db": 0.0,
 "pitch": 1.0,
 "priority": 0,
 "sample": ExtResource( 3 )
 }
-samples/shoot_02 = {
+samples/power_on = {
 "db": 0.0,
 "pitch": 1.0,
 "priority": 0,
 "sample": ExtResource( 4 )
 }
-samples/shoot_03 = {
+samples/shoot_01 = {
 "db": 0.0,
 "pitch": 1.0,
 "priority": 0,
 "sample": ExtResource( 5 )
 }
-samples/shoot_04 = {
+samples/shoot_02 = {
 "db": 0.0,
 "pitch": 1.0,
 "priority": 0,
 "sample": ExtResource( 6 )
+}
+samples/shoot_03 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 7 )
+}
+samples/shoot_04 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 8 )
 }
 
 [node name="basic_attack" type="Area2D"]
