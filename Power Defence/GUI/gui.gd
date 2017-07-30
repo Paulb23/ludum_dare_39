@@ -58,7 +58,7 @@ func toggle_power():
 		if get_parent().current_energy >= selected_tower.energy_cost:
 			selected_tower.poweron()
 		else:
-			get_parent().show_error("Now Enough Power!")
+			get_parent().show_error("Not Enough Power!")
 	tower_selected(selected_tower)
 	
 func tower_selected(tower):
