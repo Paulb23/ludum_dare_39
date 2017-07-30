@@ -1,7 +1,8 @@
 extends Node2D
 
 var targets_basic = [
-	load("res://Targets/basic_target.tscn")
+	load("res://Targets/basic_target.tscn"),
+	load("res://Targets/basic_tank.tscn")
 ]
 
 var towers = {}
@@ -10,6 +11,8 @@ var current_energy = 50
 var current_health = 100
 
 var current_wave = 0
+var max_specials
+var specials_spawned = 0
 
 var target_count
 var targets_alive
@@ -25,6 +28,8 @@ func calculate_wave():
 	current_wave += 1
 	target_count = ((((current_wave + 1)/2.0) + ((1 + 1)/1.5)) * 3);
 	targets_alive = target_count
+	specials_spawned = 0
+	max_specials = target_count / 4 # 1 quarter specials
 	wave_timer()
 	
 func wave_timer():
@@ -50,7 +55,15 @@ func spawn_targets():
 		spawn_targets()
 
 func spawn_target(target):
-	var target = targets_basic[0].instance()
+	var target
+	if (current_wave <= 2):
+		target = targets_basic[0].instance()
+	else:
+		var target_id = floor(rand_range(0, 1.9));
+		if (target_id > 0 && specials_spawned <= max_specials):
+			target = targets_basic[target_id].instance()
+		else:
+			target = targets_basic[0].instance()
 	target.health = target.health + (target.health / 10) * current_wave
 	get_node("path").add_child(target)
 	
