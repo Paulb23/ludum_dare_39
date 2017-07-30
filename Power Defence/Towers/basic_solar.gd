@@ -3,6 +3,7 @@ extends Area2D
 var name = "Solar Tower"
 var energy_cost = 1
 var build_cost = 2
+var upgrade_cost = 2
 var energy_generation = 10
 var activated = false
 var dmg = 0

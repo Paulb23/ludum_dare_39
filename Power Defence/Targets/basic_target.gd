@@ -3,7 +3,7 @@ extends PathFollow2D
 var speed = 0.05
 var dmg = 7
 
-var health = 5
+var health = 3
 
 var dead = false
 

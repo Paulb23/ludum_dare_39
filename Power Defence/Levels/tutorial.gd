@@ -22,6 +22,7 @@ signal example_killed
 signal tower_placed
 signal power_collected
 signal removed_tower
+signal upgraded_tower
 
 func _ready():
 	get_node("energy_timer").connect("timeout", self, "update_energy")
@@ -100,7 +101,7 @@ func start_tutorial():
 	get_node("stats_arrow").show()
 	get_node("tut_text").show_text("\n    With it selected, we can see its stats.")
 	yield(get_node("tut_text"), "next_text")
-	get_node("tut_text").show_text("\n    It costs 2 power every minute and does 0 damage.")
+	get_node("tut_text").show_text("\n    It costs 1 power every minute and does 0 damage.")
 	yield(get_node("tut_text"), "next_text")
 	get_node("tut_text").show_text("\n    We can also power it off for better power management.")
 	yield(get_node("tut_text"), "next_text")
@@ -112,7 +113,7 @@ func start_tutorial():
 	get_node("tut_text/Button").show()
 	get_node("tut_text").show_text("\n    When powered off it does nothing, and costs nothing.")
 	yield(get_node("tut_text"), "next_text")
-	get_node("tut_text").show_text("\n    To turn it back on we need enough power. In this case\n    2.")
+	get_node("tut_text").show_text("\n    To turn it back on we need enough power. In this case\n    1.")
 	yield(get_node("tut_text"), "next_text")
 	get_node("gui").allow_power = true
 	get_node("tut_text/Button").hide()
@@ -121,6 +122,18 @@ func start_tutorial():
 	get_node("stats_arrow").hide()
 	get_node("tut_text/Button").show()
 	get_node("gui").allow_power = false
+	get_node("tut_text").show_text("\n    Towers can also be upgraded.")
+	yield(get_node("tut_text"), "next_text")
+	get_node("tut_text").show_text("\n    It costs power. Hover over to see the cost.")
+	yield(get_node("tut_text"), "next_text")
+	get_node("tut_text/Button").hide()
+	get_node("gui").allow_upgrade = true
+	get_node("tut_text").show_text("\n    Upgrade the Tower.")
+	yield(self, "upgraded_tower")
+	get_node("tut_text/Button").show()
+	get_node("gui").allow_upgrade = false
+	get_node("tut_text").show_text("\n    See the updated stats and new cost.")
+	yield(get_node("tut_text"), "next_text")
 	get_node("tut_text").show_text("\n    We can also remove towers.")
 	yield(get_node("tut_text"), "next_text")
 	get_node("tut_text/Button").hide()
@@ -243,6 +256,21 @@ func remove_tower(pos):
 		get_node("Camera2D").shake(rand_range(5, 7), rand_range(0.5, 1))
 		get_node("SamplePlayer").play("remove_0" + str(floor(rand_range(1,4))))
 		emit_signal("removed_tower")
+
+func upgrade(tower):
+	if (tower == null):
+		return
+	var cost = round(tower.upgrade_cost / 2)
+	if (current_energy >= cost):
+		current_energy -= cost
+		tower.upgrade_cost += 1
+		get_node("gui/energy").set_text(str(current_energy))
+		get_node("SamplePlayer").play("upgrade")
+		emit_signal("upgraded_tower")
+		return true
+	else:
+		show_error("Not Enough Power!")
+		return false
 
 func shake(time, amount):
 	get_node("Camera2D").shake(time, amount)

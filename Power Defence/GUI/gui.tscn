@@ -729,6 +729,22 @@ enabled_focus_mode = 2
 shortcut = null
 flat = false
 
+[node name="upgrade_button" type="Button" parent="selected"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 3.0
+margin/top = 93.0
+margin/right = 107.0
+margin/bottom = 113.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Upgrade"
+flat = false
+
 [node name="error" type="Label" parent="."]
 
 focus/ignore_mouse = true

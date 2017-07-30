@@ -55,17 +55,35 @@ func spawn_targets():
 	if target_count > 0:
 		spawn_targets()
 
+func upgrade(tower):
+	var cost = round(tower.upgrade_cost / 2)
+	if (current_energy >= cost):
+		current_energy -= cost
+		tower.upgrade_cost += 1
+		get_node("gui/energy").set_text(str(current_energy))
+		get_node("SamplePlayer").play("upgrade")
+		return true
+	else:
+		show_error("Not Enough Power!")
+		return false
+
 func spawn_target(target):
 	var target
 	if (current_wave <= 2):
 		target = targets_basic[0].instance()
 	else:
-		var target_id = floor(rand_range(0, 2.9));
-		if (target_id > 0 && specials_spawned <= max_specials):
-			target = targets_basic[target_id].instance()
+		if current_wave % 4 == 0:
+			target = targets_basic[1].instance()
+		elif current_wave % 3 == 0:
+			target = targets_basic[2].instance()
 		else:
 			target = targets_basic[0].instance()
-	target.health = target.health + (target.health / 10) * current_wave
+		#var target_id = floor(rand_range(0, 2.9));
+		#if (target_id > 0 && specials_spawned <= max_specials):
+	#		target = targets_basic[target_id].instance()
+	#	else:
+	#		target = targets_basic[0].instance()
+	target.health = target.health + (target.health / 5) * current_wave
 	get_node("path").add_child(target)
 	
 func killed_target():

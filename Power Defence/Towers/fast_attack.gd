@@ -13,6 +13,7 @@ var dmg = 3
 var powered = true
 var energy_cost = 12
 var build_cost = 7
+var upgrade_cost = 7
 var energy_generation = 0
 
 var area = CircleShape2D.new()
