@@ -1,6 +1,12 @@
 extends Control
 
 var selected_tower = null
+var disabled = false
+var allow_solar = false
+var allow_selection = false
+var allow_power = false
+
+signal solar_selected
 
 func _ready():
 	get_node("towers/HButtonArray/solar_tower").connect("pressed", self, "basic_solar")
@@ -16,6 +22,11 @@ func basic_attack():
 	select_tower(1)
 
 func select_tower(tower):
+	if disabled:
+		if allow_solar && tower == 0:
+			get_parent().get_node("player").set_active_tower(tower)
+			emit_signal("solar_selected")
+		return
 	get_parent().get_node("player").set_active_tower(tower)
 	
 func show_error(error):
@@ -26,6 +37,8 @@ func hide_error():
 	get_node("error").set_text("")
 	
 func toggle_power():
+	if disabled && !allow_power:
+		return
 	if (selected_tower.powered):
 			selected_tower.poweroff()
 	else:
@@ -36,6 +49,8 @@ func toggle_power():
 	tower_selected(selected_tower)
 	
 func tower_selected(tower):
+	if disabled && !allow_selection:
+		return
 	selected_tower = tower
 	get_node("selected/stats").set_text(tower.name + "\nCost: " + str(tower.energy_cost) + "\nDmg: " + str(tower.dmg)) 
 	if (tower.powered):
