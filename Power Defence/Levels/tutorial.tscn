@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=1]
+[gd_scene load_steps=30 format=1]
 
 [ext_resource path="res://Levels/tutorial.gd" type="Script" id=1]
 [ext_resource path="res://Tiles/can_place_tiles.tres" type="TileSet" id=2]
@@ -12,14 +12,18 @@
 [ext_resource path="res://Audio/place_02.wav" type="Sample" id=10]
 [ext_resource path="res://Audio/place_03.wav" type="Sample" id=11]
 [ext_resource path="res://Audio/place_04.wav" type="Sample" id=12]
-[ext_resource path="res://Audio/typing.wav" type="Sample" id=13]
-[ext_resource path="res://Music/tut_loop.ogg" type="AudioStream" id=14]
-[ext_resource path="res://Scripts/camrea.gd" type="Script" id=15]
-[ext_resource path="res://Menus/pause_menu.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Menus/game_over.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Scripts/typing.gd" type="Script" id=18]
-[ext_resource path="res://Fonts/nasalization-rg.ttf" type="DynamicFontData" id=19]
-[ext_resource path="res://arrow.png" type="Texture" id=20]
+[ext_resource path="res://Audio/remove_01.wav" type="Sample" id=13]
+[ext_resource path="res://Audio/remove_02.wav" type="Sample" id=14]
+[ext_resource path="res://Audio/remove_03.wav" type="Sample" id=15]
+[ext_resource path="res://Audio/remove_04.wav" type="Sample" id=16]
+[ext_resource path="res://Audio/typing.wav" type="Sample" id=17]
+[ext_resource path="res://Music/tut_loop.ogg" type="AudioStream" id=18]
+[ext_resource path="res://Scripts/camrea.gd" type="Script" id=19]
+[ext_resource path="res://Menus/pause_menu.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Menus/game_over.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Scripts/typing.gd" type="Script" id=22]
+[ext_resource path="res://Fonts/nasalization-rg.ttf" type="DynamicFontData" id=23]
+[ext_resource path="res://arrow.png" type="Texture" id=24]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -72,23 +76,47 @@ samples/place_04 = {
 "priority": 0,
 "sample": ExtResource( 12 )
 }
-samples/typing = {
+samples/remove_01 = {
 "db": 0.0,
 "pitch": 1.0,
 "priority": 0,
 "sample": ExtResource( 13 )
+}
+samples/remove_02 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 14 )
+}
+samples/remove_03 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 15 )
+}
+samples/remove_04 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 16 )
+}
+samples/typing = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 17 )
 }
 samples/typing_1 = {
 "db": 0.0,
 "pitch": 1.0,
 "priority": 0,
-"sample": ExtResource( 13 )
+"sample": ExtResource( 17 )
 }
 samples/typing_2 = {
 "db": 0.0,
 "pitch": 1.0,
 "priority": 0,
-"sample": ExtResource( 13 )
+"sample": ExtResource( 17 )
 }
 
 [sub_resource type="DynamicFont" id=3]
@@ -96,7 +124,7 @@ samples/typing_2 = {
 font/size = 24
 font/use_mipmaps = false
 font/use_filter = false
-font/font = ExtResource( 19 )
+font/font = ExtResource( 23 )
 
 [sub_resource type="CanvasItemShader" id=4]
 
@@ -194,7 +222,7 @@ default/chorus_send = 0.0
 
 [node name="StreamPlayer" type="StreamPlayer" parent="."]
 
-stream/stream = ExtResource( 14 )
+stream/stream = ExtResource( 18 )
 stream/play = false
 stream/loop = true
 stream/volume_db = 0.0
@@ -222,13 +250,13 @@ drag_margin/left = 0.2
 drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
-script/script = ExtResource( 15 )
+script/script = ExtResource( 19 )
 
-[node name="pause_menu" parent="." instance=ExtResource( 16 )]
+[node name="pause_menu" parent="." instance=ExtResource( 20 )]
 
 transform/pos = Vector2( -999, -999 )
 
-[node name="game_over" parent="." instance=ExtResource( 17 )]
+[node name="game_over" parent="." instance=ExtResource( 21 )]
 
 transform/pos = Vector2( -999, -999 )
 
@@ -242,7 +270,7 @@ margin/left = 16.0
 margin/top = 16.0
 margin/right = 784.0
 margin/bottom = 112.0
-script/script = ExtResource( 18 )
+script/script = ExtResource( 22 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="tut_text"]
 
@@ -290,7 +318,7 @@ visibility/visible = false
 material/material = SubResource( 5 )
 transform/pos = Vector2( 560, 448 )
 transform/scale = Vector2( 2.5, 2.5 )
-texture = ExtResource( 20 )
+texture = ExtResource( 24 )
 
 [node name="power_arrow" type="Sprite" parent="."]
 
@@ -298,7 +326,7 @@ visibility/visible = false
 material/material = SubResource( 5 )
 transform/pos = Vector2( 37, 480 )
 transform/scale = Vector2( 2.5, 2.5 )
-texture = ExtResource( 20 )
+texture = ExtResource( 24 )
 
 [node name="tower_arrow" type="Sprite" parent="."]
 
@@ -306,7 +334,7 @@ visibility/visible = false
 material/material = SubResource( 5 )
 transform/pos = Vector2( 284, 480 )
 transform/scale = Vector2( 2.5, 2.5 )
-texture = ExtResource( 20 )
+texture = ExtResource( 24 )
 
 [node name="solar_arrow" type="Sprite" parent="."]
 
@@ -314,7 +342,7 @@ visibility/visible = false
 material/material = SubResource( 5 )
 transform/pos = Vector2( 252, 496 )
 transform/scale = Vector2( 2.5, 2.5 )
-texture = ExtResource( 20 )
+texture = ExtResource( 24 )
 
 [node name="stats_arrow" type="Sprite" parent="."]
 
@@ -322,6 +350,14 @@ visibility/visible = false
 material/material = SubResource( 5 )
 transform/pos = Vector2( 128, 448 )
 transform/scale = Vector2( 2.5, 2.5 )
-texture = ExtResource( 20 )
+texture = ExtResource( 24 )
+
+[node name="remove_arrow" type="Sprite" parent="."]
+
+visibility/visible = false
+material/material = SubResource( 5 )
+transform/pos = Vector2( 763, 487 )
+transform/scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 24 )
 
 

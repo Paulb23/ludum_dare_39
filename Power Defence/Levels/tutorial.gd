@@ -21,6 +21,7 @@ var wait_for_place = false
 signal example_killed
 signal tower_placed
 signal power_collected
+signal removed_tower
 
 func _ready():
 	get_node("energy_timer").connect("timeout", self, "update_energy")
@@ -79,6 +80,7 @@ func start_tutorial():
 	wait_for_place = true
 	yield(self, "tower_placed")
 	wait_for_place = false
+	get_node("gui").allow_solar = false
 	get_node("player").active_tower.queue_free()
 	get_node("player").active_tower = null
 	get_node("tut_text/Button").show()
@@ -98,7 +100,7 @@ func start_tutorial():
 	get_node("stats_arrow").show()
 	get_node("tut_text").show_text("\n    With it selected, we can see its stats.")
 	yield(get_node("tut_text"), "next_text")
-	get_node("tut_text").show_text("\n    It costs 1 power every minute and does 0 damage.")
+	get_node("tut_text").show_text("\n    It costs 2 power every minute and does 0 damage.")
 	yield(get_node("tut_text"), "next_text")
 	get_node("tut_text").show_text("\n    We can also power it off for better power management.")
 	yield(get_node("tut_text"), "next_text")
@@ -110,14 +112,31 @@ func start_tutorial():
 	get_node("tut_text/Button").show()
 	get_node("tut_text").show_text("\n    When powered off it does nothing, and costs nothing.")
 	yield(get_node("tut_text"), "next_text")
-	get_node("tut_text").show_text("\n    To turn it back on we need enough power. In this case 2.")
+	get_node("tut_text").show_text("\n    To turn it back on we need enough power. In this case\n    2.")
 	yield(get_node("tut_text"), "next_text")
 	get_node("gui").allow_power = true
 	get_node("tut_text/Button").hide()
 	get_node("tut_text").show_text("\n    Turn the tower back on.")
 	yield(get_node("gui/selected/power_button"), "pressed")
+	get_node("stats_arrow").hide()
 	get_node("tut_text/Button").show()
 	get_node("gui").allow_power = false
+	get_node("tut_text").show_text("\n    We can also remove towers.")
+	yield(get_node("tut_text"), "next_text")
+	get_node("tut_text/Button").hide()
+	get_node("gui").allow_remove = true
+	get_node("tut_text").show_text("\n    Select the remove icon.")
+	get_node("remove_arrow").show()
+	yield(get_node("gui"), "remove_selected")
+	get_node("gui").allow_remove = false
+	get_node("remove_arrow").hide()
+	get_node("tut_text").show_text("\n    Remove the Solar Tower")
+	yield(self, "removed_tower")
+	get_node("player").active_tower.queue_free()
+	get_node("player").active_tower = null
+	get_node("tut_text/Button").show()
+	get_node("tut_text").show_text("\n    Removing a tower costs the same as bulding it.")
+	yield(get_node("tut_text"), "next_text")
 	get_node("tut_text").show_text("\n    This is the end of the tutorial. Good luck out there!")
 	yield(get_node("tut_text"), "next_text")
 	get_node("/root/globals").set_scene("res://Menus/main_menu.tscn")
@@ -214,6 +233,16 @@ func place_tower(tower, tile):
 	
 	if wait_for_place:
 		emit_signal("tower_placed")
+		
+func remove_tower(pos):
+	if (pos in towers):
+		current_energy -= towers[pos].build_cost
+		get_node("gui/energy").set_text(str(current_energy))
+		towers[pos].queue_free()
+		towers.erase(pos)
+		get_node("Camera2D").shake(rand_range(5, 7), rand_range(0.5, 1))
+		get_node("SamplePlayer").play("remove_0" + str(floor(rand_range(1,4))))
+		emit_signal("removed_tower")
 
 func shake(time, amount):
 	get_node("Camera2D").shake(time, amount)

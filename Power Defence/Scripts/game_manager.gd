@@ -115,6 +115,15 @@ func select_tower(pos):
 				current_energy += towers[pos].energy_generation
 				get_node("gui/energy").set_text(str(current_energy))
 		get_node("gui").tower_selected(towers[pos])
+		
+func remove_tower(pos):
+	if (pos in towers):
+		current_energy -= towers[pos].build_cost
+		get_node("gui/energy").set_text(str(current_energy))
+		towers[pos].queue_free()
+		towers.erase(pos)
+		get_node("Camera2D").shake(rand_range(5, 7), rand_range(0.5, 1))
+		get_node("SamplePlayer").play("remove_0" + str(floor(rand_range(1,4))))
 
 func can_place(pos):
 	return get_node("can_place").get_cell(pos.x, pos.y) && get_node("can_place").get_cell(pos.x, pos.y - 1) && get_node("can_place").get_cell(pos.x - 1, pos.y) && !pos in towers

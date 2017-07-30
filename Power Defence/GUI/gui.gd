@@ -3,15 +3,18 @@ extends Control
 var selected_tower = null
 var disabled = false
 var allow_solar = false
+var allow_remove = false
 var allow_selection = false
 var allow_power = false
 
 signal solar_selected
+signal remove_selected
 
 func _ready():
 	get_node("towers/HButtonArray/solar_tower").connect("pressed", self, "basic_solar")
 	get_node("towers/HButtonArray/basic_attack").connect("pressed", self, "basic_attack")
 	get_node("towers/HButtonArray/fast_attack").connect("pressed", self, "fast_attack")
+	get_node("towers/HButtonArray/remove_tower").connect("pressed", self, "remove_tower")
 	get_node("selected/power_button").connect("pressed", self, "toggle_power")
 	
 	get_node("error/error_timer").connect("timeout", self, "hide_error")
@@ -24,12 +27,18 @@ func basic_attack():
 	
 func fast_attack():
 	select_tower(2)
+	
+func remove_tower():
+	select_tower(3)
 
 func select_tower(tower):
 	if disabled:
 		if allow_solar && tower == 0:
 			get_parent().get_node("player").set_active_tower(tower)
 			emit_signal("solar_selected")
+		if allow_remove && tower == 3:
+			get_parent().get_node("player").set_active_tower(tower)
+			emit_signal("remove_selected")
 		return
 	get_parent().get_node("player").set_active_tower(tower)
 	

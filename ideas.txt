@@ -26,11 +26,11 @@ Theme:- Running out of Power
 
 -- todo
 	- add  effects for reaching end of screen -- maybe flash screen?
-	- add start of wave warning -- maybe
-	- create menus
-		- game over
+	- add start of wave warning -- maybe?
 		
 	- create tutorial
+		- step three intro to attack tower and enemies?
+
 	- if time create more levels
 	
 	- create more targets
@@ -40,16 +40,11 @@ Theme:- Running out of Power
 
 	- create more towers
 		- circle
-		- fast shooter
 		- bomb
 
 	- add upgrades
 	- ability to remove towers
-
-	- menu music and effects
 	
 	- make power gen more noticable!
-
-	- custom cursor
 
 	

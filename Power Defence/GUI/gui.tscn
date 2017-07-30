@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=1]
+[gd_scene load_steps=43 format=1]
 
 [ext_resource path="res://GUI/gui.gd" type="Script" id=1]
 [ext_resource path="res://GUI/panel.png" type="Texture" id=2]
@@ -9,11 +9,13 @@
 [ext_resource path="res://Icons/basic_attack/attack_normal.png" type="Texture" id=7]
 [ext_resource path="res://Icons/fast_attack/attack_hover.png" type="Texture" id=8]
 [ext_resource path="res://Icons/fast_attack/attack_normal.png" type="Texture" id=9]
-[ext_resource path="res://GUI/panel_card.png" type="Texture" id=10]
-[ext_resource path="res://Fonts/nasalization-rg.ttf" type="DynamicFontData" id=11]
-[ext_resource path="res://Scripts/bar.gd" type="Script" id=12]
-[ext_resource path="res://GUI/power_panel.png" type="Texture" id=13]
-[ext_resource path="res://Fonts/batmfa__.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://Icons/remove_tower/remove_hover.png" type="Texture" id=10]
+[ext_resource path="res://Icons/remove_tower/remove_normal.png" type="Texture" id=11]
+[ext_resource path="res://GUI/panel_card.png" type="Texture" id=12]
+[ext_resource path="res://Fonts/nasalization-rg.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://Scripts/bar.gd" type="Script" id=14]
+[ext_resource path="res://GUI/power_panel.png" type="Texture" id=15]
+[ext_resource path="res://Fonts/batmfa__.ttf" type="DynamicFontData" id=16]
 
 [sub_resource type="StyleBoxTexture" id=1]
 
@@ -287,7 +289,7 @@ expand_margin/top = 0.0
 expand_margin/bottom = 0.0
 draw_center = true
 
-[sub_resource type="StyleBoxTexture" id=12]
+[sub_resource type="StyleBoxTexture" id=22]
 
 content_margin/left = -1.0
 content_margin/right = -1.0
@@ -304,19 +306,104 @@ expand_margin/top = 0.0
 expand_margin/bottom = 0.0
 draw_center = true
 
+[sub_resource type="StyleBoxTexture" id=23]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+texture = ExtResource( 10 )
+margin/left = 0.0
+margin/right = 0.0
+margin/top = 0.0
+margin/bottom = 0.0
+expand_margin/left = 0.0
+expand_margin/right = 0.0
+expand_margin/top = 0.0
+expand_margin/bottom = 0.0
+draw_center = true
+
+[sub_resource type="StyleBoxTexture" id=24]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+texture = ExtResource( 10 )
+margin/left = 0.0
+margin/right = 0.0
+margin/top = 0.0
+margin/bottom = 0.0
+expand_margin/left = 0.0
+expand_margin/right = 0.0
+expand_margin/top = 0.0
+expand_margin/bottom = 0.0
+draw_center = true
+
+[sub_resource type="StyleBoxTexture" id=25]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+texture = ExtResource( 11 )
+margin/left = 0.0
+margin/right = 0.0
+margin/top = 0.0
+margin/bottom = 0.0
+expand_margin/left = 0.0
+expand_margin/right = 0.0
+expand_margin/top = 0.0
+expand_margin/bottom = 0.0
+draw_center = true
+
+[sub_resource type="StyleBoxTexture" id=26]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+texture = ExtResource( 11 )
+margin/left = 0.0
+margin/right = 0.0
+margin/top = 0.0
+margin/bottom = 0.0
+expand_margin/left = 0.0
+expand_margin/right = 0.0
+expand_margin/top = 0.0
+expand_margin/bottom = 0.0
+draw_center = true
+
+[sub_resource type="StyleBoxTexture" id=12]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+texture = ExtResource( 12 )
+margin/left = 0.0
+margin/right = 0.0
+margin/top = 0.0
+margin/bottom = 0.0
+expand_margin/left = 0.0
+expand_margin/right = 0.0
+expand_margin/top = 0.0
+expand_margin/bottom = 0.0
+draw_center = true
+
 [sub_resource type="DynamicFont" id=13]
 
 font/size = 14
 font/use_mipmaps = true
 font/use_filter = true
-font/font = ExtResource( 11 )
+font/font = ExtResource( 13 )
 
 [sub_resource type="DynamicFont" id=14]
 
 font/size = 48
 font/use_mipmaps = false
 font/use_filter = false
-font/font = ExtResource( 11 )
+font/font = ExtResource( 13 )
 
 [sub_resource type="StyleBoxTexture" id=15]
 
@@ -324,7 +411,7 @@ content_margin/left = -1.0
 content_margin/right = -1.0
 content_margin/top = -1.0
 content_margin/bottom = -1.0
-texture = ExtResource( 13 )
+texture = ExtResource( 15 )
 margin/left = 0.0
 margin/right = 0.0
 margin/top = 0.0
@@ -340,7 +427,7 @@ draw_center = true
 font/size = 22
 font/use_mipmaps = true
 font/use_filter = true
-font/font = ExtResource( 14 )
+font/font = ExtResource( 16 )
 
 [node name="gui" type="Control"]
 
@@ -462,6 +549,30 @@ enabled_focus_mode = 2
 shortcut = null
 flat = false
 
+[node name="remove_tower" type="Button" parent="towers/HButtonArray"]
+
+hint/tooltip = "Remover
+Removes towers from the battlefield.
+
+Cost: Build Cost"
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 512.0
+margin/top = -16.0
+margin/right = 560.0
+margin/bottom = 48.0
+custom_styles/hover = SubResource( 22 )
+custom_styles/pressed = SubResource( 23 )
+custom_styles/focus = SubResource( 24 )
+custom_styles/disabled = SubResource( 25 )
+custom_styles/normal = SubResource( 26 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
 [node name="selected" type="Panel" parent="."]
 
 focus/ignore_mouse = false
@@ -534,7 +645,7 @@ autostart = false
 
 transform/pos = Vector2( 536, 496 )
 transform/scale = Vector2( 7.5, 0.25 )
-script/script = ExtResource( 12 )
+script/script = ExtResource( 14 )
 FULL_COLOR = Color( 1, 0.1, 0.1, 1 )
 EMPTY_COLOR = Color( 1, 0.1, 0.1, 1 )
 BORDER_COLOR = Color( 0.66, 0.66, 0.66, 1 )

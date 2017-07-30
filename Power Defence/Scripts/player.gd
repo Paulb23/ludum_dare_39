@@ -3,7 +3,8 @@ extends Node2D
 var towers = [
 	load("res://Towers/basic_solar.tscn"),
 	load("res://Towers/basic_attack.tscn"),
-	load("res://Towers/fast_attack.tscn")
+	load("res://Towers/fast_attack.tscn"),
+	load("res://Towers/remover.tscn")
 ]
 
 var tile_size = 32
@@ -25,7 +26,7 @@ func _input(event):
 		
 		active_tower.set_pos(get_mouse_tile()*tile_size)
 		var can_place = get_parent().can_place(get_mouse_tile())
-		if (can_place):
+		if (can_place && active_tower.name != "Remover"):
 			active_tower.get_node("Sprite").set_opacity(0.8)
 			if (event.type == InputEvent.MOUSE_BUTTON && event.button_mask == BUTTON_MASK_LEFT):
 				last_tower = current_tower
@@ -33,8 +34,16 @@ func _input(event):
 				get_parent().place_tower(active_tower, get_mouse_tile())
 		else:
 			if (event.type == InputEvent.MOUSE_BUTTON && event.button_mask == BUTTON_MASK_LEFT):
-				get_parent().show_error("Cannot place tower there!")
-			active_tower.get_node("Sprite").set_opacity(0.1)
+				if (active_tower.name == "Remover"):
+					var mouse_pos = get_local_mouse_pos()
+					mouse_pos.x += 16
+					mouse_pos.y += 16
+					mouse_pos.x = floor(mouse_pos.x / tile_size)
+					mouse_pos.y = floor(mouse_pos.y / tile_size)
+					get_parent().remove_tower(mouse_pos)
+				else:
+					get_parent().show_error("Cannot place tower there!")
+					active_tower.get_node("Sprite").set_opacity(0.1)
 	elif (event.type == InputEvent.MOUSE_BUTTON && event.button_mask == BUTTON_MASK_LEFT):
 		var mouse_pos = get_local_mouse_pos()
 		mouse_pos.x += 16

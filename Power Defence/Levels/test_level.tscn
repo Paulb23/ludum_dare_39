@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=1]
+[gd_scene load_steps=23 format=1]
 
 [ext_resource path="res://Scripts/game_manager.gd" type="Script" id=1]
 [ext_resource path="res://Tiles/can_place_tiles.tres" type="TileSet" id=2]
@@ -12,10 +12,14 @@
 [ext_resource path="res://Audio/place_02.wav" type="Sample" id=10]
 [ext_resource path="res://Audio/place_03.wav" type="Sample" id=11]
 [ext_resource path="res://Audio/place_04.wav" type="Sample" id=12]
-[ext_resource path="res://Music/theme_01.ogg" type="AudioStream" id=13]
-[ext_resource path="res://Scripts/camrea.gd" type="Script" id=14]
-[ext_resource path="res://Menus/pause_menu.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Menus/game_over.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Audio/remove_01.wav" type="Sample" id=13]
+[ext_resource path="res://Audio/remove_02.wav" type="Sample" id=14]
+[ext_resource path="res://Audio/remove_03.wav" type="Sample" id=15]
+[ext_resource path="res://Audio/remove_04.wav" type="Sample" id=16]
+[ext_resource path="res://Music/theme_01.ogg" type="AudioStream" id=17]
+[ext_resource path="res://Scripts/camrea.gd" type="Script" id=18]
+[ext_resource path="res://Menus/pause_menu.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Menus/game_over.tscn" type="PackedScene" id=20]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -67,6 +71,30 @@ samples/place_04 = {
 "pitch": 1.0,
 "priority": 0,
 "sample": ExtResource( 12 )
+}
+samples/remove_01 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 13 )
+}
+samples/remove_02 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 14 )
+}
+samples/remove_03 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 15 )
+}
+samples/remove_04 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 16 )
 }
 
 [node name="test_level" type="Node2D"]
@@ -147,7 +175,7 @@ default/chorus_send = 0.0
 
 [node name="StreamPlayer" type="StreamPlayer" parent="."]
 
-stream/stream = ExtResource( 13 )
+stream/stream = ExtResource( 17 )
 stream/play = false
 stream/loop = true
 stream/volume_db = 0.0
@@ -175,13 +203,13 @@ drag_margin/left = 0.2
 drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
-script/script = ExtResource( 14 )
+script/script = ExtResource( 18 )
 
-[node name="pause_menu" parent="." instance=ExtResource( 15 )]
+[node name="pause_menu" parent="." instance=ExtResource( 19 )]
 
 transform/pos = Vector2( -999, -999 )
 
-[node name="game_over" parent="." instance=ExtResource( 16 )]
+[node name="game_over" parent="." instance=ExtResource( 20 )]
 
 transform/pos = Vector2( -999, -999 )
 
