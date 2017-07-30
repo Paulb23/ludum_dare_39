@@ -29,7 +29,6 @@ Theme:- Running out of Power
 	- add start of wave warning -- maybe
 	- create menus
 		- game over
-		- pause
 		
 	- create tutorial
 	- if time create more levels

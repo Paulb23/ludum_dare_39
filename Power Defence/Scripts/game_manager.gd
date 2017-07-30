@@ -68,7 +68,7 @@ func take_dmg(dmg):
 	update_health()
 	
 	if (current_health <= 0):
-		show_error("Game Over!")
+		game_over()
 
 func update_energy():
 	var cant_afford_tower = true
@@ -83,9 +83,9 @@ func update_energy():
 			tower.poweroff()
 			
 	if towers.size() <= 0 && current_energy <= 0:
-		show_error("Game Over!")
+		game_over()
 	elif powered_off == towers.size() && cant_afford_tower && towers.size() > 0:
-		show_error("Game Over!")
+		game_over()
 	get_node("gui/energy").set_text(str(current_energy))
 
 func place_tower(tower, tile):
@@ -122,3 +122,8 @@ func can_place(pos):
 func show_error(error):
 	get_node("gui").show_error(error)
 	get_node("SamplePlayer").play("error")
+	
+func game_over():
+	get_node("StreamPlayer").stop()
+	get_node("game_over").show()
+	get_tree().set_pause(true)

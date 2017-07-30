@@ -31,5 +31,7 @@ func _draw():
 
 
 func set_percentage(percentage):
-    self.percentage = percentage
-    update()
+	if (percentage < 0):
+		percentage = 0
+	self.percentage = percentage
+	update()

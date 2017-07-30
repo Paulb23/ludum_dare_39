@@ -12,6 +12,16 @@ func _ready():
 	
 	get_node("music_vol").set_value(AudioServer.get_stream_global_volume_scale());
 	get_node("sfx_vol").set_value(AudioServer.get_fx_global_volume_scale())
+	
+	set_process_input(true)
+	
+func _input(event):
+	if (event.is_action_released("pause") && !event.echo):
+		if (get_tree().is_paused()):
+			play()
+		else:
+			get_tree().set_pause(true)
+			show()
 
 func play():
 	get_node("SamplePlayer").play("menu_select")
